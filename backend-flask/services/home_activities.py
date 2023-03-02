@@ -2,7 +2,7 @@ from datetime import datetime, timedelta, timezone
 import logging
 
 class HomeActivities:
-  def run(logger):
+  def run():
    # LOGGER.info("HomeActivities")
     now = datetime.now(timezone.utc).astimezone()
 

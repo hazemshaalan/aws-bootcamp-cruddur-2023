@@ -24,6 +24,10 @@ from opentelemetry.sdk.trace.export import ConsoleSpanExporter, SimpleSpanProces
 # x-ray
 from aws_xray_sdk.core import xray_recorder
 from aws_xray_sdk.ext.flask.middleware import XRayMiddleware
+# Cloudwatch-------
+import watchtower
+import logging
+from time import strftime
 
 xray_url = os.getenv("AWS_XRAY_URL")
 xray_recorder.configure(service='backend-flask', dynamic_naming=xray_url)
@@ -41,10 +45,20 @@ provider.add_span_processor(simple_processor)
 trace.set_tracer_provider(provider)
 tracer = trace.get_tracer(__name__)
 
+# Configuring Logger to Use CloudWatch
+# LOGGER = logging.getLogger(__name__)
+# LOGGER.setLevel(logging.DEBUG)
+# console_handler = logging.StreamHandler()
+# cw_handler = watchtower.CloudWatchLogHandler(log_group='cruddur')
+# LOGGER.addHandler(console_handler)
+# LOGGER.addHandler(cw_handler)
+# LOGGER.info("test log")
+
 app = Flask(__name__)
 
-#x-ray
-XRayMiddleware(app, xray_recorder)
+# X-RAY ----------
+#XRayMiddleware(app, xray_recorder)
+
 
 # HoneyComb ---------
 # Initialize automatic instrumentation with Flask
@@ -83,6 +97,11 @@ def data_messages(handle):
   else:
     return model['data'], 200
   return
+#@app.after_request
+#def after_request(response):
+#    timestamp = strftime('[%Y-%b-%d %H:%M]')
+#    LOGGER.error('%s %s %s %s %s %s', timestamp, request.remote_addr, request.method, request.scheme, request.full_path, response.status)
+#    return response
 
 @app.route("/api/messages", methods=['POST','OPTIONS'])
 @cross_origin()

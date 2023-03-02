@@ -95,6 +95,10 @@ def hello():
 FlaskInstrumentor().instrument_app(app)
 RequestsInstrumentor().instrument()
 
+# Show this in the logs within the backend-flask app (STDOUT)
+#simple_processor = SimpleSpanProcessor(ConsoleSpanExporter())
+#provider.add_span_processor(simple_processor)
+
 
 frontend = os.getenv('FRONTEND_URL')
 backend = os.getenv('BACKEND_URL')

@@ -1,6 +1,8 @@
 import './HomeFeedPage.css';
 import React from "react";
 
+
+
 import DesktopNavigation  from '../components/DesktopNavigation';
 import DesktopSidebar     from '../components/DesktopSidebar';
 import ActivityFeed from '../components/ActivityFeed';
@@ -9,6 +11,7 @@ import ReplyForm from '../components/ReplyForm';
 
 // [TODO] Authenication
 import Cookies from 'js-cookie'
+
 
 export default function HomeFeedPage() {
   const [activities, setActivities] = React.useState([]);

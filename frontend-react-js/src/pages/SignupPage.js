@@ -1,41 +1,37 @@
-import './SignupPage.css';
+import './SigninPage.css';
 import React from "react";
 import {ReactComponent as Logo} from '../components/svg/logo.svg';
 import { Link } from "react-router-dom";
 
 // [TODO] Authenication
-import Cookies from 'js-cookie'
+import { Auth } from 'aws-amplify';
 
-export default function SignupPage() {
+export default function SigninPage() {
 
-  // Username is Eamil
-  const [name, setName] = React.useState('');
   const [email, setEmail] = React.useState('');
-  const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [errors, setErrors] = React.useState('');
 
   const onsubmit = async (event) => {
+    setErrors('')
     event.preventDefault();
-    console.log('SignupPage.onsubmit')
-    // [TODO] Authenication
-    Cookies.set('user.name', name)
-    Cookies.set('user.username', username)
-    Cookies.set('user.email', email)
-    Cookies.set('user.password', password)
-    Cookies.set('user.confirmation_code',1234)
-    window.location.href = `/confirm?email=${email}`
+    Auth.signIn(email, password)
+    .then(user => {
+      console.log('user',user)
+      localStorage.setItem("access_token", user.signInUserSession.accessToken.jwtToken)
+      window.location.href = "/"
+    })
+    .catch(error => { 
+      if (error.code == 'UserNotConfirmedException') {
+        window.location.href = "/confirm"
+      }
+      setErrors(error.message)
+    });
     return false
   }
 
-  const name_onchange = (event) => {
-    setName(event.target.value);
-  }
   const email_onchange = (event) => {
     setEmail(event.target.value);
-  }
-  const username_onchange = (event) => {
-    setUsername(event.target.value);
   }
   const password_onchange = (event) => {
     setPassword(event.target.value);
@@ -47,27 +43,18 @@ export default function SignupPage() {
   }
 
   return (
-    <article className='signup-article'>
-      <div className='signup-info'>
+    <article className="signin-article">
+      <div className='signin-info'>
         <Logo className='logo' />
       </div>
-      <div className='signup-wrapper'>
+      <div className='signin-wrapper'>
         <form 
-          className='signup_form'
+          className='signin_form'
           onSubmit={onsubmit}
         >
-          <h2>Sign up to create a Cruddur account</h2>
+          <h2>Sign into your Cruddur account</h2>
           <div className='fields'>
-            <div className='field text_field name'>
-              <label>Name</label>
-              <input
-                type="text"
-                value={name}
-                onChange={name_onchange} 
-              />
-            </div>
-
-            <div className='field text_field email'>
+            <div className='field text_field username'>
               <label>Email</label>
               <input
                 type="text"
@@ -75,16 +62,6 @@ export default function SignupPage() {
                 onChange={email_onchange} 
               />
             </div>
-
-            <div className='field text_field username'>
-              <label>Username</label>
-              <input
-                type="text"
-                value={username}
-                onChange={username_onchange} 
-              />
-            </div>
-
             <div className='field text_field password'>
               <label>Password</label>
               <input
@@ -96,16 +73,19 @@ export default function SignupPage() {
           </div>
           {el_errors}
           <div className='submit'>
-            <button type='submit'>Sign Up</button>
+            <Link to="/forgot" className="forgot-link">Forgot Password?</Link>
+            <button type='submit'>Sign In</button>
           </div>
+
         </form>
-        <div className="already-have-an-account">
+        <div className="dont-have-an-account">
           <span>
-            Already have an account?
+            Don't have an account?
           </span>
-          <Link to="/signin">Sign in!</Link>
+          <Link to="/signup">Sign up!</Link>
         </div>
       </div>
+
     </article>
   );
 }

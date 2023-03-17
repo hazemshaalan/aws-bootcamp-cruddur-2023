@@ -215,7 +215,6 @@ def data_activities():
   else:
     return model['data'], 200
   return
-
 @app.route("/api/activities/<string:activity_uuid>", methods=['GET'])
 @xray_recorder.capture('activities_show')
 def data_show_activity(activity_uuid):

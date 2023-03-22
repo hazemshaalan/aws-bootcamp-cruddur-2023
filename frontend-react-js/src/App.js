@@ -1,5 +1,6 @@
 import './App.css';
 import { Amplify } from 'aws-amplify';
+import MessageGroupNewPage from './pages/MessageGroupNewPage';
 
 import HomeFeedPage from './pages/HomeFeedPage';
 import NotificationsFeedPage from './pages/NotificationsFeedPage';
@@ -52,7 +53,11 @@ const router = createBrowserRouter([
     element: <MessageGroupsPage />
   },
   {
-    path: "/messages/@:handle",
+    path: "/messages/new/:handle",
+    element: <MessageGroupNewPage />
+  },
+  {
+    path: "/messages/:message_group_uuid",
     element: <MessageGroupPage />
   },
   {

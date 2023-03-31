@@ -31,3 +31,8 @@ The `/journal` directory contains
 - [ ] [Week 11](journal/week11.md)
 - [ ] [Week 12](journal/week12.md)
 - [ ] [Week 13](journal/week13.md)
+
+
+
+
+cruddur-alb-234686508.us-east-1.elb.amazonaws.com

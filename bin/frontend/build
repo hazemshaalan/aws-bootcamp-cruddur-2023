@@ -1,4 +1,3 @@
-
 #! /usr/bin/bash
 
 ABS_PATH=$(readlink -f "$0")
@@ -11,8 +10,8 @@ docker build \
 --build-arg REACT_APP_BACKEND_URL="https://api.cruddur.com" \
 --build-arg REACT_APP_AWS_PROJECT_REGION="$AWS_DEFAULT_REGION" \
 --build-arg REACT_APP_AWS_COGNITO_REGION="$AWS_DEFAULT_REGION" \
---build-arg REACT_APP_AWS_USER_POOLS_ID="us-east-1_6psor4CP1" \
---build-arg REACT_APP_CLIENT_ID="27c9fg99cj0l6g7vj1cqjg16gc" \
+--build-arg REACT_APP_AWS_USER_POOLS_ID="ca-central-1_CQ4wDfnwc" \
+--build-arg REACT_APP_CLIENT_ID="5b6ro31g97urk767adrbrdj1g5" \
 -t frontend-react-js \
 -f "$FRONTEND_REACT_JS_PATH/Dockerfile.prod" \
 "$FRONTEND_REACT_JS_PATH/."

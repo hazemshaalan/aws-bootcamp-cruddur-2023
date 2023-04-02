@@ -109,4 +109,4 @@ export default function ConfirmationPage() {
       {code_button}
     </article>
   );
-} 
+}

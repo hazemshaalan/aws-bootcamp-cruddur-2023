@@ -21,3 +21,5 @@ export class ThumbingServerlessCdkStack extends cdk.Stack {
   }
 
 }
+
+

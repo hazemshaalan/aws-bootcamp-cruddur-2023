@@ -20,14 +20,14 @@
                 "s3SchemaVersion": "1.0",
                 "configurationId": "EXAMPLEConfig",
                 "bucket": {
-                    "name": "example-bucket",
+                    "name": "assets.shaalancloud.com",
                     "ownerIdentity": {
                         "principalId": "EXAMPLE"
                     },
-                    "arn": "arn:aws:s3:::example-bucket"
+                    "arn": "arn:aws:s3:::assets.shaalancloud.com"
                 },
                 "object": {
-                    "key": "example-object.txt",
+                    "key": "avatars/original/data.jpg",
                     "size": 1024,
                     "eTag": "EXAMPLEETAG",
                     "sequencer": "EXAMPLESEQUENCER"

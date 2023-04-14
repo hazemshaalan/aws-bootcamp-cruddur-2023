@@ -35,6 +35,4 @@ The `/journal` directory contains
 
 
 
-cruddur-alb-234686508.us-east-1.elb.amazonaws.com
-
 

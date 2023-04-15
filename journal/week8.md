@@ -102,6 +102,14 @@ createSnsTopic(topicName: string): sns.ITopic{
 }
 ```
 
+## Serving Avatars via cloudfront
 
 
+- first we go to the console and dot manually 
+- we will point to the assets bucket as the Origin domain
+- Origin access is Origin access control settings (recommended)
+- we added the assets.shaalancloud.com record to Route53
+- we updated the bucket policy to allow cloudfront to to access the S3 bucket because public access is blocked by default 
+
+![serving avatars through cloudfront](https://user-images.githubusercontent.com/114304965/232232812-bf147f8a-a0f0-48a2-b3e6-8e504b63396e.PNG)
 

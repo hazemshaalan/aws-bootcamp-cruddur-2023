@@ -36,22 +36,30 @@ export class ThumbingServerlessCdkStack extends cdk.Stack {
 
 
     const bucket=this.importBucket(bucketName);
-    
-    const lambda = this.createLambda(folderInput,folderOutput,functionPath,bucketName)
-    this.createS3NotifyToLambda(folderInput,lambda,bucket)
-    const s3ReadWritePolicy = this.createPolicyBucketAccess(bucket.bucketArn)
-    lambda.addToRolePolicy(s3ReadWritePolicy);
-    const snsTopic = this.createSnsTopic(topicName)
-    this.createS3NotifyToSns(folderOutput,snsTopic,bucket)
-    this.createSnsSubscription(snsTopic,webhookUrl)
-    //const snsPublishPolicy = this.createPolicySnSPublish(snsTopic.topicArn)
-    //lambda.addToRolePolicy(snsPublishPolicy);
 
+    const lambda = this.createLambda(functionPath, bucketName, folderInput, folderOutput);
+
+    // create topic and subscription
+    const snsTopic = this.createSnsTopic(topicName)
+    this.createSnsSubscription(snsTopic,webhookUrl)
+
+    // add our s3 event notifications
+    this.createS3NotifyToLambda(folderInput,lambda,bucket)
+    this.createS3NotifyToSns(folderOutput,snsTopic,bucket)
+
+    // create policies
+    const s3ReadWritePolicy = this.createPolicyBucketAccess(bucket.bucketArn)
+    //const snsPublishPolicy = this.createPolicySnSPublish(snsTopic.topicArn)
+
+    // attach policies for permissions
+    lambda.addToRolePolicy(s3ReadWritePolicy);
+    //lambda.addToRolePolicy(snsPublishPolicy);
   }
 
   createBucket(bucketName:string):s3.IBucket{
-    const bucket = new s3.Bucket(this,'ThumbingBucket',{
-      bucketName:bucketName,removalPolicy:cdk.RemovalPolicy.DESTROY
+    const bucket = new s3.Bucket(this, 'AssetsBucket', {
+      bucketName: bucketName,
+      removalPolicy: cdk.RemovalPolicy.DESTROY
     });
     return bucket;
   }
@@ -61,31 +69,31 @@ export class ThumbingServerlessCdkStack extends cdk.Stack {
     return bucket;
   }
 
-  createLambda(folderIntput: string, folderOutput: string, functionPath: string, bucketName: string): lambda.IFunction {
-    const logicalName = 'ThumbLambda';
-    const code = lambda.Code.fromAsset(functionPath)
-    const lambdaFunction = new lambda.Function(this, logicalName, {
+  createLambda(functionPath: string, bucketName: string, folderInput: string, folderOutput: string): lambda.IFunction {
+    const lambdaFunction = new lambda.Function(this, 'ThumbLambda', {
       runtime: lambda.Runtime.NODEJS_18_X,
       handler: 'index.handler',
-      code: code,
+      code: lambda.Code.fromAsset(functionPath),
       environment: {
         DEST_BUCKET_NAME: bucketName,
-        FOLDER_INPUT: folderIntput,
+        FOLDER_INPUT: folderInput,
         FOLDER_OUTPUT: folderOutput,
         PROCESS_WIDTH: '512',
         PROCESS_HEIGHT: '512'
       }
     });
     return lambdaFunction;
-  }
+  } 
+
   createS3NotifyToLambda(prefix: string, lambda: lambda.IFunction, bucket: s3.IBucket): void {
     const destination = new s3n.LambdaDestination(lambda);
     bucket.addEventNotification(
       s3.EventType.OBJECT_CREATED_PUT,
-      destination//,
-      //{prefix: prefix} // folder to contain the original images
+      destination,
+      {prefix: prefix} // folder to contain the original images
     )
   }
+
   createPolicyBucketAccess(bucketArn: string){
     const s3ReadWritePolicy = new iam.PolicyStatement({
       actions: [
@@ -99,40 +107,43 @@ export class ThumbingServerlessCdkStack extends cdk.Stack {
     return s3ReadWritePolicy;
   }
 
-createSnsTopic(topicName: string): sns.ITopic{
-  const logicalName = "ThumpingTopic";
-  const snsTopic = new sns.Topic(this, logicalName, {
-    topicName: topicName
-  });
-  return snsTopic;
-}
-createS3NotifyToSns(prefix: string, snsTopic: sns.ITopic, bucket: s3.IBucket): void {
-  const destination = new s3n.SnsDestination(snsTopic)
-  bucket.addEventNotification(
-    s3.EventType.OBJECT_CREATED_PUT, 
-    destination,
-    {prefix: prefix}
-  );
-}
-createSnsSubscription(snsTopic: sns.ITopic, webhookUrl: string): sns.Subscription {
-  const snsSubscription = snsTopic.addSubscription(
-    new subscriptions.UrlSubscription(webhookUrl)
-  )
-  return snsSubscription;
-}
-/*
-createPolicySnSPublish(topicArn: string){
-  const snsPublishPolicy = new iam.PolicyStatement({
-    actions: [
-      'sns:Publish',
-    ],
-    resources: [
-      topicArn
-    ]
-  });
-  return snsPublishPolicy;
-}
-*/
+  createSnsTopic(topicName: string): sns.ITopic{
+    const logicalName = "ThumbingTopic";
+    const snsTopic = new sns.Topic(this, logicalName, {
+      topicName: topicName
+    });
+    return snsTopic;
+  }
+
+  createSnsSubscription(snsTopic: sns.ITopic, webhookUrl: string): sns.Subscription {
+    const snsSubscription = snsTopic.addSubscription(
+      new subscriptions.UrlSubscription(webhookUrl)
+    )
+    return snsSubscription;
+  }
+
+  createS3NotifyToSns(prefix: string, snsTopic: sns.ITopic, bucket: s3.IBucket): void {
+    const destination = new s3n.SnsDestination(snsTopic)
+    bucket.addEventNotification(
+      s3.EventType.OBJECT_CREATED_PUT, 
+      destination,
+      {prefix: prefix}
+    );
+  }
+
+  /*
+  createPolicySnSPublish(topicArn: string){
+    const snsPublishPolicy = new iam.PolicyStatement({
+      actions: [
+        'sns:Publish',
+      ],
+      resources: [
+        topicArn
+      ]
+    });
+    return snsPublishPolicy;
+  }
+  */
 }
 
 

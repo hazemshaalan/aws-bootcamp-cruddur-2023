@@ -113,3 +113,8 @@ createSnsTopic(topicName: string): sns.ITopic{
 
 ![serving avatars through cloudfront](https://user-images.githubusercontent.com/114304965/232232812-bf147f8a-a0f0-48a2-b3e6-8e504b63396e.PNG)
 
+## Implement user profile page 
+![profile pic ypdated](https://user-images.githubusercontent.com/114304965/232309184-91cf52f7-e82a-4f2d-9dfd-527c200168f0.PNG)
+
+
+

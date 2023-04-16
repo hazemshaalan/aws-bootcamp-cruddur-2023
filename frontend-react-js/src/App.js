@@ -1,7 +1,7 @@
 import './App.css';
 import { Amplify } from 'aws-amplify';
 import MessageGroupNewPage from './pages/MessageGroupNewPage';
-
+import './components/Popup.css';
 import HomeFeedPage from './pages/HomeFeedPage';
 import NotificationsFeedPage from './pages/NotificationsFeedPage';
 import UserFeedPage from './pages/UserFeedPage';

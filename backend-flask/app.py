@@ -3,7 +3,7 @@ from flask import request
 from flask_cors import CORS, cross_origin
 import os
 import sys
-
+from services.update_profile import *
 from services.users_short import *
 
 from services.home_activities import *
@@ -158,14 +158,35 @@ def data_messages(message_group_uuid):
   access_token = extract_access_token(request.headers)
   try:
     claims = cognito_jwt_token.verify(access_token)
-    # authenicatied request
-    app.logger.debug("authenicated")
-    app.logger.debug(claims)
+    
     cognito_user_id = claims['sub']
     model = Messages.run(
         cognito_user_id=cognito_user_id,
         message_group_uuid=message_group_uuid
       )
+    if model['errors'] is not None:
+      return model['errors'], 422
+    else:
+      return model['data'], 200
+  except TokenVerifyError as e:
+    # unauthenicatied request
+    app.logger.debug(e)
+    return {}, 401
+    
+@app.route("/api/profile/update", methods=['POST','OPTIONS'])
+@cross_origin()
+def data_update_profile():
+  bio          = request.json.get('bio',None)
+  display_name = request.json.get('display_name',None)
+  access_token = extract_access_token(request.headers)
+  try:
+    claims = cognito_jwt_token.verify(access_token)
+    cognito_user_id = claims['sub']
+    UpdateProfile.run(
+      cognito_user_id=cognito_user_id,
+      bio=bio,
+      display_name=display_name
+    )
     if model['errors'] is not None:
       return model['errors'], 422
     else:

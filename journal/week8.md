@@ -133,5 +133,11 @@ createSnsTopic(topicName: string): sns.ITopic{
 ![lambdafunctionWorking](https://user-images.githubusercontent.com/114304965/233308712-203edd50-ad85-400e-ac8f-c9548720c413.PNG)
 - https://hbf8753k0b.execute-api.us-east-1.amazonaws.com/avatars/key_upload
 
+## Fixing upload to s3 
+- we addes this policy to the uploaded avatar bucket 
+- ![fixng upload to s3](https://user-images.githubusercontent.com/114304965/233471023-68a84bc6-27a8-4243-91d8-c7575330f02d.PNG)
 
 - ![upload avatar button](https://user-images.githubusercontent.com/114304965/233319883-6df3611e-afe4-4784-a826-3048edd79436.PNG)
+
+![Profilepic upload](https://user-images.githubusercontent.com/114304965/233500955-5b9e2530-bd72-4313-9a14-b88a435b926b.PNG)
+

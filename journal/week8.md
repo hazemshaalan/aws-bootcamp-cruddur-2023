@@ -123,10 +123,15 @@ createSnsTopic(topicName: string): sns.ITopic{
 
 
 
-## Generating pre-signed URL 
+## Implement  avatar uploading
+- Generating pre-signed URL 
 - create cruddurAvataUpload lambda function with presigined URL permissions 
 - bundle install
 - bundle exec ruby function.rb
 - edit the Edit runtime settings in lambda -> in handler section to function.handler
 - change the function name to function.rb instead of lambdafunction.rb
 ![lambdafunctionWorking](https://user-images.githubusercontent.com/114304965/233308712-203edd50-ad85-400e-ac8f-c9548720c413.PNG)
+- https://hbf8753k0b.execute-api.us-east-1.amazonaws.com/avatars/key_upload
+
+
+- ![upload avatar button](https://user-images.githubusercontent.com/114304965/233319883-6df3611e-afe4-4784-a826-3048edd79436.PNG)

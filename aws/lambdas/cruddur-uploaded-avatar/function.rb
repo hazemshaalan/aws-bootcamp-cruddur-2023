@@ -1,5 +1,10 @@
 require 'aws-sdk-s3'
 require 'json'
+
+def handler(event:, context:)
+  puts event
+  require 'aws-sdk-s3'
+require 'json'
 require 'jwt'
 
 def handler(event:, context:)

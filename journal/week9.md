@@ -14,4 +14,4 @@
 
 - Done !
 
-![succcesfull build](https://user-images.githubusercontent.com/114304965/233740762-972b489c-2f92-4b39-b8e9-1740317e843b.PNG)
+![Deployed successfully](https://user-images.githubusercontent.com/114304965/233740830-1063c7b5-3ad8-4e4e-a87c-0bf4fd39f4c1.PNG)

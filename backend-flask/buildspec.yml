@@ -11,8 +11,7 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - echo Building the Docker image... 
-      - cd $CODEBUILD_SRC_DIR        
+      - echo Building the Docker image...          
       - docker build -t backend-flask .
       - "docker tag $REPO_NAME $IMAGE_URL/$REPO_NAME"
   post_build:
@@ -23,7 +22,6 @@ phases:
       - cd $CODEBUILD_SRC_DIR
       - echo "imagedefinitions.json > [{\"name\":\"$CONTAINER_NAME\",\"imageUri\":\"$IMAGE_URL/$REPO_NAME\"}]" > imagedefinitions.json
       - printf "[{\"name\":\"$CONTAINER_NAME\",\"imageUri\":\"$IMAGE_URL/$REPO_NAME\"}]" > imagedefinitions.json
-
 env:
   variables:
     AWS_ACCOUNT_ID: 850249732638

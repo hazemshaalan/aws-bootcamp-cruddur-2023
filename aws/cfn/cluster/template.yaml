@@ -5,6 +5,7 @@ Description: |
   - Application Load Balanacer (ALB)
     - ipv4 only
     - internet facing
+    - certificate attached from Amazon Certification Manager (ACM)
   - ALB Security Group
   - HTTPS Listerner
     - send naked domain to frontend Target Group
@@ -101,12 +102,12 @@ ALB: #--------------------------------------------------------------------------
       # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattributes.html
       Scheme: internet-facing
       SecurityGroups:
-        - !Ref ALBSG
+        - !GetAtt ALBSG.GroupId
       Subnets:
         Fn::Split:
           - ","
           - Fn::ImportValue:
-              !Sub "${NetworkingStack}SubnetIds"
+              !Sub "${NetworkingStack}PublicSubnetIds"
  #---------------------------------------------------------------------------------------------------------------------------
       LoadBalancerAttributes:
         - Key: routing.http2.enabled
@@ -173,6 +174,9 @@ ALBSG: #------------------------------------------------------------------------
     Properties:
       GroupName: !Sub "${AWS::StackName}AlbSG"
       GroupDescription: Public Facing SG for our Cruddur ALB
+      VpcId:
+        Fn::ImportValue:
+          !Sub ${NetworkingStack}VpcId
       SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: 443
@@ -234,3 +238,4 @@ FrontendTG: #-------------------------------------------------------------------
       VpcId:
         Fn::ImportValue:
           !Sub ${NetworkingStack}VpcId          
+          

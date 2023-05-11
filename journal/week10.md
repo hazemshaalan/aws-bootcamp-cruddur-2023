@@ -44,3 +44,12 @@
 
 ![crudDB](https://github.com/hazemshaalan/aws-bootcamp-cruddur-2023/assets/114304965/b1a100be-1ee0-45f6-a894-a421862b78a6)
 ![CtudderInstance](https://github.com/hazemshaalan/aws-bootcamp-cruddur-2023/assets/114304965/90514bc4-d7dd-4700-be66-5025595093b5)
+
+# Service Layer 
+-   We hardcoded th port 4567 on the target healthcheck to make it a healty one
+![Healtytarget](https://github.com/hazemshaalan/aws-bootcamp-cruddur-2023/assets/114304965/46a88847-6583-4318-86a0-c6d753892880)
+
+
+
+![Healthytask](https://github.com/hazemshaalan/aws-bootcamp-cruddur-2023/assets/114304965/d9072f43-051c-448a-824b-f8bc47267aa3)
+![API Healtcheck working](https://github.com/hazemshaalan/aws-bootcamp-cruddur-2023/assets/114304965/1ec1d3a7-4651-44ad-bb6e-281fb78fcc8e)

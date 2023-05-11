@@ -34,3 +34,13 @@
 - executed the change set and the resources were created 
 ![resorces](https://user-images.githubusercontent.com/114304965/233962700-457ab663-fb83-4985-ab54-3f1ce64fec2f.PNG)
 
+# cluster layer
+-created change set for cluster layer
+
+![Crudcluster created](https://github.com/hazemshaalan/aws-bootcamp-cruddur-2023/assets/114304965/2205d75b-6374-4402-b4b3-222eb953472e)
+![Clusetr layer created 1](https://github.com/hazemshaalan/aws-bootcamp-cruddur-2023/assets/114304965/345ee272-407b-4ea1-8602-900935bc2bc9)
+
+# Db layer created before service because servce was failing 
+
+![crudDB](https://github.com/hazemshaalan/aws-bootcamp-cruddur-2023/assets/114304965/b1a100be-1ee0-45f6-a894-a421862b78a6)
+![CtudderInstance](https://github.com/hazemshaalan/aws-bootcamp-cruddur-2023/assets/114304965/90514bc4-d7dd-4700-be66-5025595093b5)

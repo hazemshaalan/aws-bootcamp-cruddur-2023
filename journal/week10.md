@@ -53,3 +53,12 @@
 
 ![Healthytask](https://github.com/hazemshaalan/aws-bootcamp-cruddur-2023/assets/114304965/d9072f43-051c-448a-824b-f8bc47267aa3)
 ![API Healtcheck working](https://github.com/hazemshaalan/aws-bootcamp-cruddur-2023/assets/114304965/1ec1d3a7-4651-44ad-bb6e-281fb78fcc8e)
+
+
+
+# DynamoDB
+
+![CruDDup](https://github.com/hazemshaalan/aws-bootcamp-cruddur-2023/assets/114304965/e0ecffa0-dde6-4c8d-9608-310c30b4cbe9)
+
+![Cruddb resource](https://github.com/hazemshaalan/aws-bootcamp-cruddur-2023/assets/114304965/a491d936-84d6-46c2-ad61-3d153d50dd0f)
+

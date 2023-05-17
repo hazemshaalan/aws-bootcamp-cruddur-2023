@@ -61,4 +61,6 @@
 ![CruDDup](https://github.com/hazemshaalan/aws-bootcamp-cruddur-2023/assets/114304965/e0ecffa0-dde6-4c8d-9608-310c30b4cbe9)
 
 ![Cruddb resource](https://github.com/hazemshaalan/aws-bootcamp-cruddur-2023/assets/114304965/a491d936-84d6-46c2-ad61-3d153d50dd0f)
+# FrontEnd Cloudfront created with CFN
 
+![Frontend cloudfront](https://github.com/hazemshaalan/aws-bootcamp-cruddur-2023/assets/114304965/f1751986-3745-4c49-8398-6345cb0e990b)

@@ -87,9 +87,9 @@ Resources:
                 ClusterName:
                   Fn::ImportValue:
                     !Sub ${ClusterStack}ClusterName
-                ServiceName:
-                  Fn::ImportValue:
-                    !Sub ${ServiceStack}ServiceName
+                ServiceName: backend-flask
+                  
+                    
   CodePipelineRole:
     Type: AWS::IAM::Role
     Properties:

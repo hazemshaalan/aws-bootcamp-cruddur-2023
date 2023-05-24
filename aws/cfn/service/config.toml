@@ -4,5 +4,5 @@ region = 'us-east-1'
 stack_name = 'CrdSrvBackendFlask'
 
 [parameters]
-EnvFrontendUrl = 'shaalancloud.com'
-EnvBackendUrl = 'api.shaalancloud.com'
+EnvFrontendUrl = 'https://shaalancloud.com'
+EnvBackendUrl = 'https://api.shaalancloud.com'

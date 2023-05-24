@@ -2,3 +2,7 @@
 bucket = 'cfn-artifacts-hs'
 region = 'us-east-1'
 stack_name = 'CrdSrvBackendFlask'
+
+[parameters]
+EnvFrontendUrl = 'shaalancloud.com'
+EnvBackendUrl = 'api.shaalancloud.com'

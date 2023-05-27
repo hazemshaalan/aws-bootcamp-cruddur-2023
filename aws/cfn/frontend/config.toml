@@ -1,0 +1,9 @@
+[deploy]
+bucket = 'cfn-artifacts-hs'
+region = 'us-east-1'
+stack_name = 'CrdFrontend'
+
+[parameters]
+CertificateArn = 'arn:aws:acm:us-east-1:850249732638:certificate/e5151f8a-b649-486f-887a-f6d51e35c027'
+WwwBucketName = 'www.shaalancloud.com'
+RootBucketName = 'shaalancloud.com'

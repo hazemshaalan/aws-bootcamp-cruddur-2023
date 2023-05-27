@@ -26,4 +26,5 @@ These are some screeshots from the tasks required to be done.
 ![aws-budget](https://user-images.githubusercontent.com/114304965/218833458-a48b5984-cdab-449f-97d4-632395e46c7c.PNG)
 
 
-![Crudder-Conceptual Diagram](https://user-images.githubusercontent.com/114304965/218833591-7d931db2-b327-4453-a4d5-89ca4a40ab38.png)
+https://app.cloudcraft.co/blueprint/036183ff-1623-4fba-b4b2-01795e39a584
+![undefined (3)](https://user-images.githubusercontent.com/114304965/233979737-4310a8ba-4f64-4fe9-b470-ac75f61cce4a.png)

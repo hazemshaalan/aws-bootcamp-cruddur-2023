@@ -16,3 +16,12 @@ try:
 except Exception as e:
   print(e)
   exit(1) # false
+  #When you have this issue. Here are some things to check (CF = CloudFormation):
+#1. Parameter Store set to correct CF DB.
+#2. CF DbRDS running.
+#3. CF DbSG set to port 5432, Source CF ClusterServiceSG
+#4. ClusterServiceSG set to port 4567, Source CF ALBSG
+#5. CF ALGSB set to allow all HTTPS,HTTP traffic.
+#6. Although this was not the case when we built the services without CF, Target Group/Health checks settings should be set to Override Port 4567.
+#7. Make sure Route53 is pointing to proper CF ALB.
+#: Happy Path: Internet → ALB → ClusterService(ECS) → DB

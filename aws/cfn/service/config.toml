@@ -1,0 +1,8 @@
+[deploy]
+bucket = 'cfn-artifacts-hs'
+region = 'us-east-1'
+stack_name = 'CrdSrvBackendFlask'
+
+[parameters]
+EnvFrontendUrl = 'https://shaalancloud.com'
+EnvBackendUrl = 'https://api.shaalancloud.com'

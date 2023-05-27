@@ -11,3 +11,7 @@
 ![extra policy](https://user-images.githubusercontent.com/114304965/233733520-1be0d650-7f32-47db-a0aa-46280fd5b0cb.PNG)
 - Now it's working !
 ![succcesfull build](https://user-images.githubusercontent.com/114304965/233733690-10efeb13-c3fa-4b95-a532-e0a9e41622fc.PNG)
+
+- Done !
+
+![Deployed successfully](https://user-images.githubusercontent.com/114304965/233740830-1063c7b5-3ad8-4e4e-a87c-0bf4fd39f4c1.PNG)

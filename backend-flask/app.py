@@ -1,6 +1,4 @@
-from flask import Flask
-from flask import request
-from flask_cors import CORS, cross_origin
+
 import os
 from flask import request, g
 import sys
@@ -17,6 +15,17 @@ from services.message_groups import *
 from services.messages import *
 from services.create_message import *
 from services.show_activity import *
+
+from flask import Flask
+from flask import request, g
+from flask_cors import cross_origin
+
+from lib.rollbar import init_rollbar
+from lib.xray import init_xray
+from lib.cors import init_cors
+from lib.cloudwatch import init_cloudwatch
+from lib.honeycomb import init_honeycomb
+from lib.cognito_jwt_token import jwt_required
 
 from lib.cognito_jwt_token import jwt_required
 # HoneyComb ---------

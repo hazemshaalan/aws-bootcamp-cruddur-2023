@@ -1,4 +1,4 @@
-from lib.db import db
+from lib.db import Db
 
 class UpdateProfile:
   def run(cognito_user_id,bio,display_name):
@@ -33,7 +33,7 @@ class UpdateProfile:
     })
   def query_users_short(handle):
     sql = db.template('users','short')
-    data = db.query_select_object(sql,{
+    data = db.query_object_json(sql,{
       'handle': handle
     })
     return data

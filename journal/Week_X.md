@@ -6,3 +6,8 @@
 
 
 I faced the same issue as Andrew on Weekx cleanup video on 41:42 and there is no clear reason why this is happening Although I am getting 200 code and the migration is done correctly
+
+
+- Deploy Successful 
+
+![Week x merge and deployes siccessfully](https://github.com/hazemshaalan/aws-bootcamp-cruddur-2023/assets/114304965/eb05349b-625b-4447-a7df-1580c82130ed)

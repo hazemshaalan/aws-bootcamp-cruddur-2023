@@ -6,3 +6,6 @@ stack_name = 'CrdSrvBackendFlask'
 [parameters]
 EnvFrontendUrl = 'https://shaalancloud.com'
 EnvBackendUrl = 'https://api.shaalancloud.com'
+
+
+DDBMessageTable = 'CrdDdb-DynamoDBTable-1M695VFC4JQZO'

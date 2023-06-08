@@ -20,3 +20,7 @@ I faced the same issue as Andrew on Weekx cleanup video on 41:42 and there is no
 
 ![frontend build for sync done](https://github.com/hazemshaalan/aws-bootcamp-cruddur-2023/assets/114304965/6bb4b81d-b761-4c4d-ad0d-0897ee7d01a0)
 ![Cloudfront sync done](https://github.com/hazemshaalan/aws-bootcamp-cruddur-2023/assets/114304965/13712964-711a-488c-98e5-70619bc991ef)
+
+-Dynamodb Done![messaging done](https://github.com/hazemshaalan/aws-bootcamp-cruddur-2023/assets/114304965/f00c4f74-de57-40a4-b5fa-2978d9b868ef)
+
+

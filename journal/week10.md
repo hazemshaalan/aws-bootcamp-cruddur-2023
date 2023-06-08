@@ -66,6 +66,17 @@
 
 ![Frontend cloudfront](https://github.com/hazemshaalan/aws-bootcamp-cruddur-2023/assets/114304965/f1751986-3745-4c49-8398-6345cb0e990b)
 
+
+
+
 # Added Githubaction with sync for future use
 ![Githubactions](https://github.com/hazemshaalan/aws-bootcamp-cruddur-2023/assets/114304965/efda05b0-b7e0-4ba0-a0c1-09f4ce84c42a)
+
+
+# Codepipline is working 
+
+![stage+build working](https://github.com/hazemshaalan/aws-bootcamp-cruddur-2023/assets/114304965/812f18ac-e74c-4c08-bf1b-18fd7e417be9)
+![deploy working](https://github.com/hazemshaalan/aws-bootcamp-cruddur-2023/assets/114304965/35f3670c-154b-420f-beb0-1d7b6945795f)
+
+
 
